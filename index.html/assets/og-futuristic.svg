@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="gradA" x1="0" x2="1">
+      <stop offset="0%" stop-color="#d97706"/>
+      <stop offset="50%" stop-color="#b45309"/>
+      <stop offset="100%" stop-color="#0ea5a4"/>
+    </linearGradient>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="18" result="b"/>
+      <feBlend in="SourceGraphic" in2="b" mode="screen"/>
+    </filter>
+    <style>
+      .bg{fill:url(#gradA)}
+      .overlay{fill:rgba(255,255,255,0.02)}
+      .accent{fill:#fff}
+      .title{font-family:Arial,Helvetica,sans-serif;font-weight:800;font-size:64px;fill:#fff}
+      .subtitle{font-family:Arial,Helvetica,sans-serif;font-weight:600;font-size:22px;fill:rgba(255,255,255,0.95)}
+      .tag{font-family:Arial,Helvetica,sans-serif;font-weight:700;font-size:20px;fill:rgba(255,255,255,0.92)}
+    </style>
+  </defs>
+
+  <rect width="100%" height="100%" class="bg"/>
+
+  <!-- Futuristic grid lines -->
+  <g stroke="rgba(255,255,255,0.06)" stroke-width="1">
+    <path d="M0 480 L1200 200"/>
+    <path d="M0 520 L1200 240"/>
+    <path d="M0 560 L1200 280"/>
+  </g>
+
+  <!-- Glowing orb -->
+  <circle cx="980" cy="120" r="120" fill="#06b6d4" filter="url(#glow)" opacity="0.9"/>
+
+  <!-- Geometric accents -->
+  <g transform="translate(80,80)">
+    <rect x="0" y="220" width="560" height="6" fill="rgba(255,255,255,0.12)"/>
+    <rect x="400" y="-10" width="320" height="180" rx="8" ry="8" fill="rgba(255,255,255,0.04)"/>
+  </g>
+
+  <!-- Text content -->
+  <text x="60" y="160" class="tag">10XTHINK</text>
+  <text x="60" y="240" class="title">Hefz|Tech — Future-Ready Web Systems</text>
+  <text x="60" y="290" class="subtitle">Fast • Accessible • Conversion-focused</text>
+
+  <!-- Bottom right micro-brand -->
+  <g transform="translate(800,480)">
+    <rect x="0" y="0" width="360" height="80" rx="8" ry="8" fill="rgba(0,0,0,0.12)"/>
+    <text x="18" y="48" class="tag">HEFZ|TECH • 10XTHINK</text>
+  </g>
+</svg>

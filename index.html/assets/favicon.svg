@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="96" height="96" viewBox="0 0 96 96">
+  <defs>
+    <linearGradient id="grad" x1="0" x2="1">
+      <stop offset="0%" stop-color="#d97706"/>
+      <stop offset="60%" stop-color="#b45309"/>
+      <stop offset="100%" stop-color="#0ea5a4"/>
+    </linearGradient>
+    <filter id="soft" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="6" result="b"/>
+      <feBlend in="SourceGraphic" in2="b" mode="screen"/>
+    </filter>
+    <style>
+      .bg{fill:url(#grad)}
+      .ring{fill:none;stroke:rgba(255,255,255,0.08);stroke-width:1}
+      .brand{font-family:Arial,Helvetica,sans-serif;font-weight:800;fill:#fff}
+      .line1{font-size:12px;letter-spacing:0.6px}
+      .line2{font-size:9px;letter-spacing:1.2px;opacity:0.95}
+    </style>
+  </defs>
+
+  <!-- background rounded tile -->
+  <rect x="2" y="2" width="92" height="92" rx="16" ry="16" class="bg" filter="url(#soft)"/>
+  <rect x="6" y="6" width="84" height="84" rx="12" ry="12" class="ring"/>
+
+  <!-- Brand text: two-line layout optimized for small sizes -->
+  <g transform="translate(48,46)" text-anchor="middle">
+    <text class="brand line1" y="-2">HEFZ|TECH</text>
+    <text class="brand line2" y="14">AGENCY</text>
+  </g>
+</svg>
