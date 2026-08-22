@@ -19,9 +19,47 @@
 body {
     background-color: var(--bg);
     color: var(--primary);
-    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-family: 'Plus Jakarta Sans', 'Segoe UI', sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
     overflow-x: hidden;
     min-height: 100vh;
+}
+
+p, li, a, span {
+    line-height: 1.7;
+
+}
+
+p {
+    color: var(--muted);
+    font-size: 0.95rem;
+    padding-left: 10px;
+}
+
+li {
+    padding-left: 15px;
+    list-style: none;
+    color: var(--accent);
+}
+
+h1, h2, h3, h4, h5, h6 {
+    line-height: 1.2;
+    letter-spacing: -0.04em;
+}
+
+h2 {
+    color: var(--accent);
+}
+
+h3, h4,
+.status-card h3,
+.project-info h3,
+.service-card h3,
+.error-box h3,
+.profile-card .profile-meta h3,
+.about-photo-card .profile-meta h3 {
+    color: var(--primary);
 }
 /* Fullscreen Loader Overlay */
 .page-loader-overlay {
@@ -280,6 +318,26 @@ header nav .nav-cta:hover {
     justify-content: space-between;
 }
 
+.reveal {
+    opacity: 0;
+    transform: translate3d(0, 26px, 0);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+    will-change: opacity, transform;
+}
+
+.reveal.visible {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .reveal {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
+}
+
 .bento-card:hover {
     transform: translateY(-4px);
     border-color: rgba(217, 119, 6, 0.32);
@@ -296,9 +354,9 @@ header nav .nav-cta:hover {
 }
 
 .hero-card h1 {
-    font-size: 2.8rem;
+    font-size: clamp(2.2rem, 4vw, 3.4rem);
     font-weight: 700;
-    line-height: 1.15;
+    line-height: 1.06;
     letter-spacing: -1.5px;
 }
 
@@ -311,8 +369,18 @@ header nav .nav-cta:hover {
 
 .hero-card p {
     color: var(--muted);
-    font-size: 1.05rem;
+    font-size: 1rem;
     max-width: 520px;
+}
+
+.hero-card .lead {
+    font-size: 1.06rem;
+    line-height: 1.7;
+}
+
+.hausa-small {
+    font-size: 0.9rem;
+    line-height: 1.6;
 }
 
 .badge {
@@ -326,26 +394,157 @@ header nav .nav-cta:hover {
 }
 
 .btn {
-    display: flex;
+    display: inline-flex;
     align-items: center;
     gap: 10px;
     background: var(--primary);
     color: #000;
     text-decoration: none;
     padding: 14px 24px;
-    border-radius: 8px;
-    font-weight: 600;
+    border-radius: 10px;
+    font-weight: 700;
     font-size: 0.95rem;
     margin-top: 10px;
-    transition: opacity 0.2s;
+    transition: transform 0.18s ease, box-shadow 0.22s ease, opacity 0.18s ease;
+}
+
+/* Primary button using Cyber Bronze */
+.btn.primary {
+    background: var(--accent);
+    color: #0a0a0a;
+    box-shadow: 0 8px 30px var(--accent-glow);
+}
+
+.btn.primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 14px 40px rgba(217,119,6,0.18);
+}
+
+/* Ghost / secondary button */
+.btn.ghost {
+    background: transparent;
+    color: var(--primary);
+    border: 1px solid rgba(255,255,255,0.06);
+}
+
+.btn.ghost:hover {
+    border-color: rgba(217,119,6,0.32);
+    color: var(--accent);
 }
 
 .btn:hover {
-    opacity: 0.9;
+    opacity: 0.98;
 }
 
 .btn .arrow {
     font-family: 'Space Mono', monospace;
+}
+
+/* Hero CTAs layout */
+.hero-ctas {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    margin-top: 10px;
+    flex-wrap: wrap;
+}
+
+.hero-ctas .btn { min-width: 160px; }
+
+/* Hausa small line */
+.hausa-small {
+    color: var(--accent);
+    font-family: 'Space Mono', monospace;
+    margin-top: 6px;
+    font-size: 0.98rem;
+}
+
+/* Services cards grid (minimal) */
+.services-cards {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+    margin-top: 18px;
+}
+
+.service-card.premium {
+    padding: 22px;
+    border-radius: 12px;
+    background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+    border: 1px solid rgba(217,119,6,0.08);
+    transition: transform 0.28s cubic-bezier(0.2,0.8,0.2,1), box-shadow 0.28s ease;
+}
+
+.service-card.premium:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 50px rgba(217,119,6,0.06);
+}
+
+.service-card.premium .icon {
+    width: 52px;
+    height: 52px;
+    border-radius: 10px;
+    display: grid;
+    place-items: center;
+    font-size: 1.2rem;
+    color: var(--accent);
+    background: rgba(217,119,6,0.04);
+    margin-bottom: 12px;
+}
+
+/* Case study layout */
+.case-study .case-grid {
+    display: grid;
+    grid-template-columns: 1fr 420px;
+    gap: 22px;
+    align-items: center;
+}
+
+.case-media img {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    display: block;
+    box-shadow: 0 18px 40px rgba(0,0,0,0.45), inset 0 0 12px rgba(217,119,6,0.02);
+}
+
+.case-media .mobile-mock {
+    margin-top: 12px;
+    max-width: 220px;
+    border-radius: 18px;
+    box-shadow: 0 10px 30px rgba(217,119,6,0.06);
+}
+
+.case-content .eyebrow {
+    color: var(--accent);
+    font-family: 'Space Mono', monospace;
+    font-size: 0.78rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+}
+
+.case-ctas { margin-top: 14px; display:flex; gap:12px; flex-wrap:wrap; }
+
+.pricing-note {
+    color: var(--muted);
+    font-size: 0.95rem;
+    margin-top: 12px;
+}
+
+/* Selected work grid */
+.work-grid { display:flex; gap:12px; flex-wrap:wrap; margin-top:12px; }
+.work-item { color: var(--primary); text-decoration:none; padding:8px 12px; background: rgba(255,255,255,0.02); border-radius:8px; border:1px solid rgba(255,255,255,0.04); }
+
+/* Responsive tweaks for added sections */
+@media (max-width: 900px) {
+    .services-cards { grid-template-columns: 1fr; }
+    .case-study .case-grid { grid-template-columns: 1fr; }
+    .case-media .mobile-mock { max-width: 240px; }
+}
+
+@media (max-width: 560px) {
+    .hero-ctas { flex-direction: column; }
+    .hero-ctas .btn { width: 100%; min-width: unset; }
 }
 
 /* Status Card */
@@ -730,8 +929,8 @@ header nav .nav-cta:hover {
 }
 
 .service-card h3 {
-    font-size: clamp(1.3rem, 2vw, 1.8rem);
-    margin-bottom: 12px;
+    font-size: clamp(1.1rem, 1.8vw, 1.5rem);
+    margin-bottom: 10px;
     letter-spacing: -0.04em;
 }
 
@@ -739,6 +938,17 @@ header nav .nav-cta:hover {
     color: var(--muted);
     font-size: 0.92rem;
     line-height: 1.7;
+}
+
+.problem-card h2,
+.services-grid h2,
+.case-study h2,
+.why-grid h2,
+.process-card h2,
+.selected-work h2,
+.cta-pricing h2 {
+    font-size: clamp(1.7rem, 2.6vw, 2.4rem);
+    line-height: 1.18;
 }
 
 .service-points {
@@ -1306,6 +1516,10 @@ footer {
         padding: 0 6%;
     }
 
+    .bento-card {
+        padding: 24px 18px;
+    }
+
     .about-inner {
         grid-template-columns: 1fr;
     }
@@ -1345,7 +1559,17 @@ footer {
     }
 
     .hero-card h1 {
-        font-size: 2rem;
+        font-size: clamp(2rem, 8vw, 2.6rem);
+    }
+    .hero-card p,
+    .hero-card .lead,
+    .hausa-small,
+    .problem-card p,
+    .case-content p,
+    .case-content li,
+    .why-card p,
+    .step p {
+        font-size: 0.96rem;
     }
     /* Services page: stack futuristic hero into single column */
     .futuristic-hero {
@@ -1423,6 +1647,20 @@ footer {
     .btn {
         width: 100%;
         justify-content: center;
+    }
+
+    .hero-card h1 {
+        font-size: clamp(1.8rem, 10vw, 2.2rem);
+    }
+
+    .hero-card .lead,
+    .hausa-small,
+    .problem-card p,
+    .case-content p,
+    .case-content li,
+    .why-card p,
+    .step p {
+        font-size: 0.92rem;
     }
 
     /* Extra small screens: tighten hero typography and ensure panels are readable */
