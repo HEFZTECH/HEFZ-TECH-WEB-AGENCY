@@ -40,4 +40,5 @@ magick "index.html/assets/og-futuristic.svg" -resize 180x180 "index.html/assets/
 magick convert "index.html/assets/favicon-16.png" "index.html/assets/favicon-32.png" "index.html/assets/apple-touch-icon.png" "index.html/assets/favicon.ico"
 ```
 
-After generating these files, the HTML already references them.
+After generating these files, the HTML already references them. 
+HEFZTECH.COM.NG
