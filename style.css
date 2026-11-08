@@ -3278,3 +3278,73 @@ footer p {
         min-width: 0;
     }
 }
+
+/* ==========================================================================
+   HEFZ│TECH v3.4 - CRITICAL BABAN ALLO & PORTFOLIO IMAGES ULTRA-FIX
+   ========================================================================== */
+
+/* 1. DESTRUCTIVE FIX FOR PORTFOLIO IMAGES (Hana Hotuna Ɓacewa Ko Matsuwa) */
+.work-preview-image, 
+.project-preview-image,
+.bento-card a,
+.work-item a {
+    display: block !important;
+    width: 100% !important;
+    position: relative !important;
+    overflow: hidden !important;
+    border-radius: 8px !important;
+    background: rgba(255, 255, 255, 0.02) !important;
+}
+
+/* Tabbatar da Tsayin Akwatin Hoton a Wayoyi da Kwamfuta */
+.work-preview-image {
+    height: 220px !important; /* Matsakaicin tsayi ga kowane hoto */
+    margin-top: 16px !important;
+}
+
+.work-preview-image img, 
+.project-preview-image img,
+.bento-card img,
+.project-card img {
+    position: absolute !important;
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important; /* Yana sa hoto ya cike akwatin sumul ba tare da ya matse ba */
+    object-position: center top !important;
+}
+
+/* 2. ULTIMATE MEDIA QUERY FOR BIG SCREENS (Manya/Baban Allo v3.4) */
+@media (min-width: 1200px) {
+    .bento-container {
+        display: grid !important;
+        grid-template-columns: repeat(3, minmax(0, 1fr)) !important; /* Raba ginshiƙai 3 tabbatattu */
+        gap: 28px !important;
+        width: 95% !important;
+        max-width: 1600px !important; /* Buɗe daukacin fadin babban allo */
+        margin: 60px auto 120px auto !important;
+        padding: 0 20px !important;
+    }
+
+    /* Tura manyan katinan su mamaye sarari biyu idan da bukata (kamar Hero Card) */
+    .hero-card {
+        grid-column: span 2 !important;
+    }
+
+    /* Ƙara girman akwatin hoton a manyan alluna */
+    .work-preview-image {
+        height: 260px !important; 
+    }
+
+    /* Sarari da walawa na manyan alluna */
+    .bento-card {
+        padding: 40px 32px !important;
+    }
+
+    /* Daidaita girman rubutu ya dace da baban allo */
+    .hero-card h1 {
+        font-size: clamp(3.2rem, 5vw, 5.2rem) !important;
+    }
+}
