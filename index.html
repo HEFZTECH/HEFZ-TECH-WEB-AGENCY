@@ -42,6 +42,7 @@
     <meta name="robots" content="index, follow">
 </head>
 <body>
+    <canvas id="bg-canvas" class="ambient-canvas" aria-hidden="true"></canvas>
 
     <!-- Interactive Amber Loader -->
 <div class="page-loader-overlay">
@@ -86,28 +87,47 @@
         
         <!-- Large Hero Card (Conversion-focused) -->
         <section class="bento-card hero-card">
-            <span class="badge">SYSTEM_ONLINE_v2.6</span>
-            <h1>ARCHITECTING DIGITAL SUPREMACY.</h1>
-            <p class="lead">We build high-performance custom websites and digital systems that help businesses showcase products, capture customers, and convert visitors into orders.</p>
-            <p class="hausa-small">Daga WhatsApp zuwa cikakken digital storefront — muna gina tsarin da ya dace da business ɗinku.</p>
+            <div class="hero-copy">
+                <span class="badge"><span class="status-dot"></span> DIGITAL SYSTEMS // BUILT TO CONVERT</span>
+                <h1>YOUR NEXT<br><span class="gradient-text">ADVANTAGE</span><br>IS DIGITAL.</h1>
+                <p class="lead">We build fast, high-performance websites and digital storefronts that turn attention into customers — and customers into orders.</p>
+                <p class="hausa-small">Daga WhatsApp zuwa cikakken digital storefront — muna gina tsarin da ya dace da business ɗinku.</p>
 
-            <div class="hero-ctas">
-                <a href="https://wa.me/2349027192335?text=Hello,%20I%27m%20interested%20in%20starting%20a%20project%20with%20HEFZ%20TECH.%20Please%20advise%20on%20next%20steps." class="btn primary">START YOUR PROJECT</a>
-                <a href="portfolio.html" class="btn ghost">VIEW OUR WORK</a>
+                <div class="hero-ctas">
+                    <a href="https://wa.me/2349027192335?text=Hello,%20I%27m%20interested%20in%20starting%20a%20project%20with%20HEFZ%20TECH.%20Please%20advise%20on%20next%20steps." class="btn primary">START YOUR PROJECT <span aria-hidden="true">↗</span></a>
+                    <a href="portfolio.html" class="btn ghost">EXPLORE OUR WORK</a>
+                </div>
+
+                <div class="hero-proof" aria-label="Our approach">
+                    <span>01 <b>BUILT FOR YOUR BUSINESS</b></span>
+                    <span>02 <b>MADE TO MOVE FAST</b></span>
+                </div>
             </div>
 
-            <!-- Engineer Profile Card (preserve) -->
-            <div class="bento-card profile-card">
-                <div class="image-wrapper">
-                    <img src="hfz.jpg" alt="Lead Engineer // DAN|ABBAS">
-                    <div class="image-overlay"></div>
-                </div>
-                <div class="profile-meta">
-                    <span class="meta-title">LEAD_ARCHITECT</span>
-                    <h3>DAN|ABBAS</h3>
-                </div>
+            <div class="hero-visual" aria-label="Interactive 3D amber particle field">
+                <div class="visual-grid" aria-hidden="true"></div>
+                <div class="visual-label visual-label-top"><span>LIVE INFRASTRUCTURE</span><span>01 / 04</span></div>
+                <div class="visual-orbit orbit-outer" aria-hidden="true"></div>
+                <div class="visual-orbit orbit-inner" aria-hidden="true"></div>
+                <div class="visual-core" aria-hidden="true"><span>HEFZ|TECH</span></div>
+                <div class="visual-readout readout-one"><span>01</span> DESIGN</div>
+                <div class="visual-readout readout-two"><span>02</span> ENGINEER</div>
+                <div class="visual-readout readout-three"><span>03</span> CONVERT</div>
+                <span class="visual-coordinate" aria-hidden="true">12°00' N / 8°31' E</span>
             </div>
         </section>
+
+        <aside class="bento-card profile-card">
+            <div class="image-wrapper">
+                <img src="hfz.jpg" alt="Dan Abbas, lead engineer at Hefztech" loading="eager">
+                <div class="image-overlay" aria-hidden="true"></div>
+            </div>
+            <div class="profile-meta">
+                <span class="meta-title">FOUNDER &amp; LEAD ENGINEER</span>
+                <h3>DAN ABBAS</h3>
+            </div>
+            <span class="profile-mark" aria-hidden="true">↗</span>
+        </aside>
 
         <!-- The Problem Section -->
         <section class="bento-card problem-card">
@@ -232,8 +252,14 @@
         <section class="bento-card selected-work">
             <h2>SELECTED WORK</h2>
             <div class="work-grid">
-                <a href="https://danhajiyacosmetic.netlify.app" target="_blank" class="work-item">Danhajiya Cosmetic</a>
-                <a href="https://hifztech.netlify.app" target="_blank" class="work-item">Hifztech Main</a>
+                <a href="https://danhajiyacosmetic.netlify.app" target="_blank" rel="noopener noreferrer" class="work-item">
+                    <img class="work-preview-image" src="assets/danhajiya-preview.png" alt="Dan Hajiya Cosmetics storefront and product catalog" loading="lazy" decoding="async">
+                    <span class="work-meta"><span class="eyebrow">01 / DIGITAL STOREFRONT</span><strong>Danhajiya Cosmetic</strong><span>DISCOVER THE BUILD <b aria-hidden="true">↗</b></span></span>
+                </a>
+                <a href="https://hifztech.netlify.app" target="_blank" rel="noopener noreferrer" class="work-item">
+                    <img class="work-preview-image" src="assets/hifztech-preview.png" alt="HifzTech live platform interface" loading="lazy" decoding="async">
+                    <span class="work-meta"><span class="eyebrow">02 / DIGITAL PLATFORM</span><strong>Hifztech Main</strong><span>DISCOVER THE BUILD <b aria-hidden="true">↗</b></span></span>
+                </a>
             </div>
         </section>
     </main>
