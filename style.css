@@ -3000,6 +3000,12 @@ footer p {
 
 }
 
+@media (min-width: 768px) and (max-width: 900px) {
+    .menu-toggle {
+        display: flex;
+    }
+}
+
 @media (max-width: 640px) {
     .bento-container {
         width: min(100% - 28px, 520px);
@@ -3224,7 +3230,6 @@ footer p {
 /* 1. Saita Akwatinan Rike Hotuna Su Kasance Da Tsayi Tabbatacce */
 .project-preview-image, 
 .work-preview-image,
-.work-grid .work-item,
 .bento-container > .profile-card .image-wrapper {
     position: relative ;
     width: 100% ;
@@ -3238,7 +3243,6 @@ footer p {
 /* 2. Sanya Hoton Ya Mamaye Daukacin Akwatin Sumul */
 .project-preview-image img, 
 .work-preview-image img, 
-.work-item img,
 .bento-container > .profile-card .image-wrapper img {
     position: absolute ;
     top: 0 ;
@@ -3285,9 +3289,7 @@ footer p {
 
 /* 1. DESTRUCTIVE FIX FOR PORTFOLIO IMAGES (Hana Hotuna Ɓacewa Ko Matsuwa) */
 .work-preview-image, 
-.project-preview-image,
-.bento-card a,
-.work-item a {
+.project-preview-image {
     display: block !important;
     width: 100% !important;
     position: relative !important;
@@ -3304,7 +3306,6 @@ footer p {
 
 .work-preview-image img, 
 .project-preview-image img,
-.bento-card img,
 .project-card img {
     position: absolute !important;
     top: 50% !important;
@@ -3320,17 +3321,20 @@ footer p {
 @media (min-width: 1200px) {
     .bento-container {
         display: grid !important;
-        grid-template-columns: repeat(3, minmax(0, 1fr)) !important; /* Raba ginshiƙai 3 tabbatattu */
-        gap: 28px !important;
+        grid-template-columns: repeat(12, minmax(0, 1fr)) !important;
+        gap: clamp(22px, 1.8vw, 32px) !important;
         width: 95% !important;
-        max-width: 1600px !important; /* Buɗe daukacin fadin babban allo */
+        max-width: 1600px !important;
         margin: 60px auto 120px auto !important;
-        padding: 0 20px !important;
+        padding: 0 clamp(32px, 3vw, 40px) !important;
     }
 
-    /* Tura manyan katinan su mamaye sarari biyu idan da bukata (kamar Hero Card) */
     .hero-card {
-        grid-column: span 2 !important;
+        grid-column: span 7 !important;
+    }
+
+    .bento-container > .profile-card {
+        grid-column: span 5 !important;
     }
 
     /* Ƙara girman akwatin hoton a manyan alluna */
@@ -3347,4 +3351,14 @@ footer p {
     .hero-card h1 {
         font-size: clamp(3.2rem, 5vw, 5.2rem) !important;
     }
+}
+
+.bento-card img,
+.project-card img,
+.case-media img,
+.archive-item img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    object-position: center center !important;
 }
